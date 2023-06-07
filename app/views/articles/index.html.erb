@@ -1,2 +1,11 @@
 <h1>Hello, Rails!</h1>
 <p>Find me in app/views/articles/index.html.erb</p>
+<ul>
+  <!-- <% %>タグは「この中のRubyコードを評価する」という意味 -->
+  <% @articles.each do |article| %>
+    <li>
+      <!-- <%= %>タグは「この中のRubyコードを評価し、返された値を出力する」という意味 -->
+      <%= article.title %>
+    </li>
+  <% end %>
+</ul>
