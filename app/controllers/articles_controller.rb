@@ -46,6 +46,6 @@ class ArticlesController < ApplicationController
   # privateメソッドとは、同じクラス内のアクションからのみ呼び出せるメソッド
   private
     def article_params
-      params.require(:article).permit(:title, :body)
+      params.require(:article).permit(:title, :body, :status)
     end
 end

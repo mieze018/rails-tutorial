@@ -1,24 +1,28 @@
 <h1>Hello, Rails!</h1>
 <p>Find me in app/views/articles/index.html.erb</p>
+
+Our blog has <%= Article.public_count %> articles and counting!
 <ul>
   <!-- <% %>タグは「この中のRubyコードを評価する」という意味 -->
   <% @articles.each do |article| %>
-    <li>
-      <!-- <%= %>タグは「この中のRubyコードを評価し、返された値を出力する」という意味 -->
-      <a href="articles/<%= article.id %>">
-        <%= article.title %>
-      </a>
-    </li>
-    <li>
-      <!-- Resourceメソッドで生成されたルーティングは_urlや_pathといったサフィックスが追加される -->
-      <a href="<%= article_url(article) %>">
-        <%= article.title %>
-      </a>
-    </li>
-    <li>
-      <!-- link_toヘルパーとかいう可読性低下ヘルパーを使うとリンクを生成するためのHTMLを生成する どんだけHTMLが嫌いなんですかね -->
-      <%= link_to article.title, article %>
-    </li>
+    <% unless article.archived? %>
+      <li>
+        <!-- <%= %>タグは「この中のRubyコードを評価し、返された値を出力する」という意味 -->
+        <a href="articles/<%= article.id %>">
+          <%= article.title %>
+        </a>
+      </li>
+      <li>
+        <!-- Resourceメソッドで生成されたルーティングは_urlや_pathといったサフィックスが追加される -->
+        <a href="<%= article_url(article) %>">
+          <%= article.title %>
+        </a>
+      </li>
+      <li>
+        <!-- link_toヘルパーとかいう可読性低下ヘルパーを使うとリンクを生成するためのHTMLを生成する どんだけHTMLが嫌いなんですかね -->
+        <%= link_to article.title, article %>
+      </li>
+    <% end %>
   <% end %>
 </ul>
 
