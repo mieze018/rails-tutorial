@@ -34,6 +34,13 @@ class ArticlesController < ApplicationController
       render :edit, status: :unprocessable_entity
     end
   end
+  # Delete の処理
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+
+    redirect_to root_path, status: :see_other
+  end
 
 
   # privateメソッドとは、同じクラス内のアクションからのみ呼び出せるメソッド
