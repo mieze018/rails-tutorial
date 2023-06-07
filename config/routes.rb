@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "articles#index"
   # GET /articlesリクエストをArticlesControllerのindexアクションに対応付ける
   get 'articles', to: 'articles#index'
   # 以下のコマンドを実行してコントローラーを自動作成する
