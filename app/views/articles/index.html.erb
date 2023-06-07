@@ -6,8 +6,18 @@
     <li>
       <!-- <%= %>タグは「この中のRubyコードを評価し、返された値を出力する」という意味 -->
       <a href="articles/<%= article.id %>">
-      <%= article.title %>
+        <%= article.title %>
       </a>
+    </li>
+    <li>
+      <!-- Resourceメソッドで生成されたルーティングは_urlや_pathといったサフィックスが追加される -->
+      <a href="<%= article_url(article) %>">
+        <%= article.title %>
+      </a>
+    </li>
+    <li>
+      <!-- link_toヘルパーとかいう可読性低下ヘルパーを使うとリンクを生成するためのHTMLを生成する どんだけHTMLが嫌いなんですかね -->
+      <%= link_to article.title, article %>
     </li>
   <% end %>
 </ul>
