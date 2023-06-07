@@ -18,4 +18,9 @@ class ArticlesController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+  # privateメソッドとは、同じクラス内のアクションからのみ呼び出せるメソッド
+  private
+    def article_params
+      params.require(:article).permit(:title, :body)
+    end
 end
