@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   # $ bin/rails generate controller Articles index --skip-routes
 
   # CRUDの各アクションに対応するルーティングを一括で設定する
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
 
   # `:`で始まる部分は「ワイルドカード」で、その部分に入る値はコントローラーのアクション内でparams[:id]として参照できる
   get 'articles/:id', to: 'articles#show'
