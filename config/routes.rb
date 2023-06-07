@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get 'articles', to: 'articles#index'
   # 以下のコマンドを実行してコントローラーを自動作成する
   # $ bin/rails generate controller Articles index --skip-routes
+
+  # `:`で始まる部分は「ワイルドカード」で、その部分に入る値はコントローラーのアクション内でparams[:id]として参照できる
+  get 'articles/:id', to: 'articles#show'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

@@ -4,4 +4,7 @@ class ArticlesController < ApplicationController
     # @から始まる変数は「インスタンス変数」で、ビューで参照できる
     @articles = Article.all
   end
+  def show
+    @article = Article.find(params[:id])
+  end
 end

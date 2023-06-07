@@ -5,7 +5,9 @@
   <% @articles.each do |article| %>
     <li>
       <!-- <%= %>タグは「この中のRubyコードを評価し、返された値を出力する」という意味 -->
+      <a href="articles/<%= article.id %>">
       <%= article.title %>
+      </a>
     </li>
   <% end %>
 </ul>
