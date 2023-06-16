@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
   def index
     # データベースからすべての記事を取り出す
     # @から始まる変数は「インスタンス変数」で、ビューで参照できる
