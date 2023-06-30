@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   root "articles#index"
   # GET /articlesリクエストをArticlesControllerのindexアクションに対応付ける
   # get 'articles', to: 'articles#index'
